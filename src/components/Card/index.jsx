@@ -24,10 +24,13 @@ function Card(e) {
         context.openProductDetail();
         context.setProductToShow(x);
     }
-    const addProduct = (productData) => {
+    const addProduct = (event,productData) => {
+        event.stopPropagation()
         context.setCount(context.count + 1)
         context.setCartProducts([...context.cartProducts, productData])
-        console.log('Cart: ', context.cartProducts);
+        context.openCheckoutSideMenu()
+        context.closeProductDetail()
+        console.log('CART: ', context.cartProducts)
     }
 
     return(
@@ -38,8 +41,8 @@ function Card(e) {
                 <span className={ClassName.categorie}>{ResponseAPI.category}</span>
                 <img className={ClassName.image} src={ResponseAPI.images} alt={ResponseAPI.product} />
                 <div className={ClassName.addCart}
-                onClick={() => {
-                    addProduct(e.data)
+                onClick={(event) => {
+                    addProduct(event,e.data)
                     }}>+</div>
             </figure>
             <p className={ClassName.description}>

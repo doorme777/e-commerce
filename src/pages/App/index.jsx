@@ -10,6 +10,7 @@ import NotFound from "../NotFound/index.jsx";
 import SignIn from "../SignIn/index.jsx";
 // components
 import Navbar from '../../components/NavBar/index.jsx';
+import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx';
 import "./App.css";
 
 function AppRoutes() {
@@ -30,8 +31,9 @@ function App() {
   return (
     <ShoppingCartProvider>
       <BrowserRouter>
-        <Navbar/>
         <AppRoutes/>
+        <Navbar/>
+        <CheckoutSideMenu/>
       </BrowserRouter>
     </ShoppingCartProvider>
   );
