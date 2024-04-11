@@ -1,6 +1,9 @@
+import { useContext } from 'react'
+import { ShoppingCartContext } from '../Context'
 
 function Card(e) {
-    console.log(e)
+    const context = useContext(ShoppingCartContext);
+
     const ClassName = {
         container: 'bg-white cursor-pointer w-56 h-60',
         containerImage: 'relative mb-2 w-full h-4/5',
@@ -22,7 +25,8 @@ function Card(e) {
             <figure className={ClassName.containerImage}>
                 <span className={ClassName.categorie}>{ResponseAPI.category}</span>
                 <img className={ClassName.image} src={ResponseAPI.images} alt={ResponseAPI.product} />
-                <div className={ClassName.addCart}>+</div>
+                <div className={ClassName.addCart}
+                onClick={() => context.setCount(context.count + 1)}>+</div>
             </figure>
             <p className={ClassName.description}>
                 <span className={ClassName.product}>{ResponseAPI.product}</span>
