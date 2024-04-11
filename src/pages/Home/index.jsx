@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import Card from "../../components/Card"
+import ProductDetail from "../../components/ProductDetail/index.jsx";
+
 
 function Home() {
   const [item, setItem] = React.useState(null); // 1
@@ -22,13 +24,13 @@ function Home() {
     <Layout>
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
       {item?.map((e) => { // 7
-      console.log(e)
         return <Card 
         key={e.id}
         data={e}
         />;
       })}
       </div>
+      <ProductDetail/>
     </Layout>
   );
 }
