@@ -17,7 +17,9 @@ function Navbar() {
         <nav className={navClasses.Navbar}>
             <ul className={navClasses.ulClasses}>
             <li className={navClasses.logo}>
-                    Shopi
+              <NavLink to="/" className={({ isActive }) =>isActive ? activeStyle : undefined}>  
+                Shopi
+              </NavLink>
                 </li>
                 <li>
                 <NavLink to="/clothes" className={({ isActive }) =>
