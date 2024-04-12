@@ -7,6 +7,10 @@ function OrderCard({
     price,
     handleDeleteProducts,
 }) {
+    let renderXMarkIcon;
+    if (handleDeleteProducts) {
+        renderXMarkIcon = <XMarkIcon className='size-6 text-black cursor-pointer' onClick={() => handleDeleteProducts(id)}></XMarkIcon>
+    }
 
     return (
         <div className="flex justify-between items-center px-6 mb-2">
@@ -22,8 +26,8 @@ function OrderCard({
                 <p className='text-sm font-light'>{title}</p>
             </div>
             <div className='flex gap-1'>
-                <p className='text-lg font-medium'>{price}</p>
-                <XMarkIcon className='size-6 text-black cursor-pointer' onClick={() => handleDeleteProducts(id)}></XMarkIcon>
+                <p className='text-lg font-medium'>${price}</p>
+                {renderXMarkIcon}
             </div>
         </div>
     )
