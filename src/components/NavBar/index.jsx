@@ -102,7 +102,7 @@ function Navbar() {
                 <li className="flex items-center gap-1">
                     <ShoppingCartIcon className='size-6 text-black'></ShoppingCartIcon>
                     <div>
-                      {context.count}
+                      {context.cartProducts.length}
                     </div>
                 </li>
             </ul>
