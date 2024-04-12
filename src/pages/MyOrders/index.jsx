@@ -12,14 +12,14 @@ function MyOrders() {
         <h1>My Orders</h1>
       </div>
       {
-        context.order.map((order,index) => {
+        context.order.map((order,index) => (
           <Link key={index} to={`/my-orders/${order.id}`}>
             <OrdersCard 
             key={order.date}
             totalPrice={order.totalPrice} 
             totalProducts={order.totalProducts}/>
           </Link>
-        })
+        ))
       }
     </Layout>
   );
