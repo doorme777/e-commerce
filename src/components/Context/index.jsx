@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
@@ -10,7 +10,7 @@ export const ShoppingCartProvider = ({children}) => {
     const closeProductDetail = () => SetIsProductDetailOpen(false);
 
     // Checkout sid menu · Open & Close
-    const [isCheckoutSideMenuOpen, SetIsCheckoutSideMenuOpen] = useState(true);
+    const [isCheckoutSideMenuOpen, SetIsCheckoutSideMenuOpen] = useState(false);
     const openCheckoutSideMenu = () => SetIsCheckoutSideMenuOpen(true);
     const closeCheckoutSideMenu = () => SetIsCheckoutSideMenuOpen(false);
 
@@ -20,6 +20,37 @@ export const ShoppingCartProvider = ({children}) => {
     const [productToShow, setProductToShow] = useState({})
     // Shopping Cart · Order
     const [order, setOrder] = useState([])
+
+    // Fetch data products.
+    const [items, setItem] = useState(null); 
+    const [filteredItem, setFilteredItem] = useState(null);
+     
+    // Get products by title
+    const [searchByTitle, setSearchByTitle] = useState(null);
+
+    useEffect(() => { 
+      const fetchData = async () => { 
+        const response = await fetch('https://api.escuelajs.co/api/v1/products/', {
+          headers: {
+            "Content-Type": "application/json",
+          }
+        })
+        const data = await response.json();
+        setItem(data); 
+      }
+      fetchData(); 
+    },[])
+
+    const filteredItemsByTitle = (items, searchByTitle) => {
+      return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+    }
+
+    useEffect(() => {
+      if (searchByTitle) {
+        setFilteredItem(filteredItemsByTitle(items,searchByTitle))
+      }
+    },[items,searchByTitle])
+
     return (
     <ShoppingCartContext.Provider value={{
         count,
@@ -35,8 +66,14 @@ export const ShoppingCartProvider = ({children}) => {
         SetIsCheckoutSideMenuOpen,
         openCheckoutSideMenu,
         closeCheckoutSideMenu,
-        order,
+        order, 
         setOrder,
+        items,
+        setItem,
+        searchByTitle,
+        setSearchByTitle,
+        filteredItem,
+        setFilteredItem,
       }}>
       {children}
     </ShoppingCartContext.Provider>

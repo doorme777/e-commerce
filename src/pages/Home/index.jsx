@@ -1,38 +1,50 @@
-import React from "react";
+
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../components/Context";
 import Layout from "../../components/Layout";
-import Card from "../../components/Card"
+import Card from "../../components/Card";
 import ProductDetail from "../../components/ProductDetail/index.jsx";
 
-
 function Home() {
-  const [item, setItem] = React.useState(null); // 1
+  const context = useContext(ShoppingCartContext);
 
-  React.useEffect(() => { // 2
-    const fetchData = async () => { // 3
-      const response = await fetch('https://api.escuelajs.co/api/v1/products/', {
-        headers: {
-          "Content-Type": "application/json",
-        }
-      })
-      const data = await response.json(); // 4
-      setItem(data); // 5
+  const renderView = () => {
+    if (context.searchByTitle?.length > 0) {
+      if (context.filteredItem?.length > 0) {
+        return (
+          context.filteredItem?.map(item => (
+            <Card key={item.id} data={item} />
+          ))
+        )
+      } else {
+        return (
+          <div>We don't have anything :(</div>
+        )
+      }
+    } else {
+      return (
+        context.items?.map(item => (
+          <Card key={item.id} data={item} />
+        ))
+      )
     }
-    fetchData(); // 6
-  },[])
+  }
 
   return (
     <Layout>
+      <input type="text"
+        placeholder="Search a product..."
+        name=""
+        id=""
+        className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
+        onChange={(event) => context.setSearchByTitle(event.target.value)}
+      />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-      {item?.map((e) => { // 7
-        return <Card 
-        key={e.id}
-        data={e}
-        />;
-      })}
+      {context.items && renderView()}
       </div>
-      <ProductDetail/>
+      <ProductDetail />
     </Layout>
   );
 }
 
-export {Home};
+export { Home };
