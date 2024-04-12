@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ShoppingCartContext } from '../../components/Context';
+import { ShoppingCartContext } from '../../Context';
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 import { Link } from "react-router-dom";
 import OrderCard from "../../components/OrderCard";

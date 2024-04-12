@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { CheckIcon, PlusIcon } from '@heroicons/react/24/solid'
-import { ShoppingCartContext } from '../Context'
+import { ShoppingCartContext } from '../../Context'
 
 function Card(e) {
     const context = useContext(ShoppingCartContext);

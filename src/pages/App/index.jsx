@@ -1,6 +1,6 @@
 import React from "react"; // Add this line
 import { BrowserRouter, useRoutes } from "react-router-dom";
-import {ShoppingCartProvider} from "../../components/Context/index.jsx"
+import {ShoppingCartProvider} from "../../Context/index.jsx"
 // enpoints
 import { Home } from "../Home/index.jsx";
 import MyAccount from "../MyAccount/index.jsx";
