@@ -2,6 +2,27 @@ import { createContext, useState, useEffect } from 'react'
 
 export const ShoppingCartContext = createContext()
 
+export const initialLocalStorage = () => {
+  const accounInLocalStorage = localStorage.getItem('account')
+  const signOutInLocalStorage = localStorage.getItem('sign-out') 
+  let parsedAccount;
+  let parsedSignOut;
+
+  if(!accounInLocalStorage) {
+    localStorage.setItem('account', JSON.stringify({}))
+    parsedAccount = {}
+  } else {
+    parsedAccount = JSON.parse(accounInLocalStorage)
+  }
+
+  if(!signOutInLocalStorage) {
+    localStorage.setItem('sign-out', JSON.stringify(false))
+    parsedSignOut = false
+  } else {
+    parsedSignOut = JSON.parse(signOutInLocalStorage);
+  }
+}
+
 export const ShoppingCartProvider = ({children}) => {
     const [count, setCount] = useState(0)
     
@@ -37,16 +58,23 @@ export const ShoppingCartProvider = ({children}) => {
     // Form for new and older users.
     const handleSubmit = (event) => {
       event.preventDefault();
-  
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
-
       setUser(data);
-      console.log(user);
       setIsLogged(true);
-      console.log(isLogged); 
+      localStorage.setItem('account', JSON.stringify(data)); // Store data in localStorage with the identifier 'account'
     };
 
+    useEffect(() => {
+      initialLocalStorage();
+    }, []);
+
+    const initialLocalStorage = () => {
+      const accountInLocalStorage = localStorage.getItem('account');
+      if (!accountInLocalStorage) {
+        localStorage.setItem('account', JSON.stringify({}));
+      }
+    };
     useEffect(() => { 
       const fetchData = async () => { 
         const response = await fetch('https://api.escuelajs.co/api/v1/products/', {
@@ -123,6 +151,7 @@ export const ShoppingCartProvider = ({children}) => {
         user,
         setUser,
         handleSubmit,
+        initialLocalStorage,
       }}>
       {children}
     </ShoppingCartContext.Provider>

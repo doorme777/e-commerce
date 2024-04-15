@@ -35,31 +35,32 @@ function Navbar() {
                     My account
                     </NavLink>
                 </li>
-                <li>
-                <NavLink to="/sign-in" className={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }>
-                    Sing In
-                    </NavLink>
-                </li>
+                
             </>
           )
         }
+    }
+
+    const handleSignOut = () => {
+      const stringifiedSignOut = JSON.stringify(true)
+      localStorage.setItem('sign-out', stringifiedSignOut)
+      context.setIsLogged(true)
     }
     
     return(
         <nav className={navClasses.Navbar}>
             <ul className={navClasses.ulClasses}>
             <li className={navClasses.logo}>
-              <NavLink 
-              to="/" 
+              <NavLink
+              to={context.isLogged ? '/' : '/sign-in'}
               className={({ isActive }) =>isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory()}>  
                 Shopi
               </NavLink>
                 </li>
                 <li>
-                <NavLink to="/clothes" 
+   
+              <NavLink to={context.isLogged ? '/clothes' : '/sign-in'}  
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("clothes")}
@@ -68,8 +69,8 @@ function Navbar() {
                 </NavLink>
                 </li>
                 <li>
-                <NavLink 
-                to="/electronics" 
+                <NavLink
+                to={context.isLogged ? '/electronics' : '/sign-in'} 
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined} 
               onClick={() => context.setSearchByCategory("electronics")}
@@ -78,8 +79,8 @@ function Navbar() {
                 </NavLink>
                 </li>
                 <li>
-                <NavLink 
-                to="/fornitures" 
+                <NavLink
+                to={context.isLogged ? '/fornitures' : '/sign-in'} 
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("fornitures")}
@@ -88,8 +89,8 @@ function Navbar() {
                 </NavLink>
                 </li>
                 <li>
-                <NavLink 
-                to="/toys" 
+                <NavLink
+                to={context.isLogged ? '/toys' : '/sign-in'} 
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("toys")}
@@ -98,8 +99,8 @@ function Navbar() {
                 </NavLink>
                 </li>
                 <li>
-                <NavLink 
-                to="/others" 
+                <NavLink
+                to={context.isLogged ? '/others' : '/sign-in'} 
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("others")}
@@ -110,6 +111,15 @@ function Navbar() {
             </ul>
             <ul className={navClasses.ulClasses}>
               {RenderOthersSection()}
+              <li
+            onClick={() => handleSignOut()}
+            >
+                <NavLink to="/sign-in" className={({ isActive }) =>
+              isActive ? activeStyle : undefined
+            }>
+                    {localStorage.getItem('sign-out') ? 'Log in' : 'Log out'}
+                    </NavLink>
+                </li>
                 <li className="flex items-center gap-1">
                     <ShoppingCartIcon className='size-6 text-black'></ShoppingCartIcon>
                     <div>

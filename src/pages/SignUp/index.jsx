@@ -9,8 +9,7 @@ function SignUp() {
         >Welcome</h1>
       </div>
       <form 
-      className="flex flex-col gap-3 w-80 mx-auto"
-      action="post">
+      className="flex flex-col gap-3 w-80 mx-auto">
         <label 
         className="text-light text-md "
         htmlFor="name">Porfavor ingrese su nombre:</label>
