@@ -26,14 +26,13 @@ El código principal de la aplicación se encuentra en el archivo i`ndex.jsx`. A
   );
 }
 ```
+1.Utilizamos el **Hook useContext** para acceder al contexto de ShoppingCartContext, que contiene los pedidos del usuario.
 
-    1.Utilizamos el **Hook useContext** para acceder al contexto de ShoppingCartContext, que contiene los pedidos del usuario.
+2.El componente **Layout** es un componente de orden superior que proporciona el diseño general de la página.
 
-    2.El componente **Layout** es un componente de orden superior que proporciona el diseño general de la página.
+3.Mapeamos sobre el array `context.order` para generar un componente **Link** y OrdersCard para cada pedido.
 
-    3.Mapeamos sobre el array `context.order` para generar un componente **Link** y OrdersCard para cada pedido.
-
-    4.El componente Link de `react-router-dom` se utiliza para crear enlaces de navegación. Cada enlace lleva a una ruta única para cada pedido.
+4.El componente Link de `react-router-dom` se utiliza para crear enlaces de navegación. Cada enlace lleva a una ruta única para cada pedido.
 
 ## Cómo ejecutar el proyecto
 Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
