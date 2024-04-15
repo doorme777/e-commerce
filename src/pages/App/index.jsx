@@ -9,7 +9,6 @@ import MyOrders from "../MyOrders/index.jsx";
 import NotFound from "../NotFound/index.jsx";
 import SignIn from "../SignIn/index.jsx";
 import SignUp from "../SignUp/index.jsx";
-// import DataUser from "../DataUser/index.jsx";
 // components
 import Navbar from '../../components/NavBar/index.jsx';
 import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx';
@@ -30,7 +29,6 @@ function AppRoutes() {
     {path: '/my-orders', element:<MyOrders/>},
     {path: '/sign-in', element:<SignIn/>},  
     {path: '/sign-up', element:<SignUp/>}, 
-    // {path: '/data-user', element:<DataUser/>},   
     {path: '/*', element:<NotFound/>},
   ])
 

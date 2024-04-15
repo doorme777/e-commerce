@@ -1,7 +1,11 @@
-import Layout from "../../components/Layout";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context/index.jsx";
+import Layout from "../../components/Layout";
+
 
 function SignIn() {
+  const context = useContext(ShoppingCartContext);
   return (
     <Layout>
       <div className='flex items-center justify-center relative w-80'>
@@ -11,25 +15,27 @@ function SignIn() {
       </div>
       <form 
       className="flex flex-col gap-3 w-80 mx-auto"
-      action="post">
+      onSubmit={context.handleSubmit}>
         <label 
         className="text-light text-md "
         htmlFor="email">Porfavor ingrese su email:</label>
         <input 
         className="rounded-lg border border-black w-80 p-3 focus:outline-none placeholder:text-gray-400"
         type="email" 
-        name="" 
+        name="email" 
         id="email" 
-        placeholder="example@gmail.com"/>
+        placeholder="example@gmail.com"
+        required/>
         <label 
         className="text-light text-md "
         htmlFor="password">Porfavor ingrese una contraseña:</label>
         <input 
         className="rounded-lg border border-black w-80 p-3 focus:outline-none placeholder:text-gray-400"
         type="text" 
-        name="" 
+        name="password" 
         id="password" 
-        placeholder="123231"/>
+        placeholder="123231"
+        required/>
         <p
           className="text-xs"
         >Si a olvidado su contraseña. Porfavor entrar <a href="#"

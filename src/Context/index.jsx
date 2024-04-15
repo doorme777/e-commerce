@@ -34,6 +34,19 @@ export const ShoppingCartProvider = ({children}) => {
     const [searchByTitle, setSearchByTitle] = useState(null);
     const [searchByCategory, setSearchByCategory] = useState(null);
 
+    // Form for new and older users.
+    const handleSubmit = (event) => {
+      event.preventDefault();
+  
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+
+      setUser(data);
+      console.log(user);
+      setIsLogged(true);
+      console.log(isLogged); 
+    };
+
     useEffect(() => { 
       const fetchData = async () => { 
         const response = await fetch('https://api.escuelajs.co/api/v1/products/', {
@@ -109,6 +122,7 @@ export const ShoppingCartProvider = ({children}) => {
         setIsLogged,
         user,
         setUser,
+        handleSubmit,
       }}>
       {children}
     </ShoppingCartContext.Provider>
