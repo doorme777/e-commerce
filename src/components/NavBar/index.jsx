@@ -52,7 +52,7 @@ function Navbar() {
             <ul className={navClasses.ulClasses}>
             <li className={navClasses.logo}>
               <NavLink
-              to={context.isLogged ? '/' : '/sign-in'}
+              to='/'
               className={({ isActive }) =>isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory()}>  
                 Shopi
@@ -60,7 +60,7 @@ function Navbar() {
                 </li>
                 <li>
    
-              <NavLink to={context.isLogged ? '/clothes' : '/sign-in'}  
+              <NavLink to='/clothes'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("clothes")}
@@ -70,7 +70,7 @@ function Navbar() {
                 </li>
                 <li>
                 <NavLink
-                to={context.isLogged ? '/electronics' : '/sign-in'} 
+                to='/electronics'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined} 
               onClick={() => context.setSearchByCategory("electronics")}
@@ -80,7 +80,7 @@ function Navbar() {
                 </li>
                 <li>
                 <NavLink
-                to={context.isLogged ? '/fornitures' : '/sign-in'} 
+                to='/fornitures'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("fornitures")}
@@ -90,7 +90,7 @@ function Navbar() {
                 </li>
                 <li>
                 <NavLink
-                to={context.isLogged ? '/toys' : '/sign-in'} 
+                to='/toys'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("toys")}
@@ -100,7 +100,7 @@ function Navbar() {
                 </li>
                 <li>
                 <NavLink
-                to={context.isLogged ? '/others' : '/sign-in'} 
+                to='/others'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory("others")}

@@ -1,7 +1,7 @@
+import { Link, Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../Context/index.jsx";
 import Layout from "../../components/Layout";
-
 
 function SignIn() {
   const context = useContext(ShoppingCartContext);
@@ -14,6 +14,13 @@ function SignIn() {
   const noAccountInLocalState = context.user ? Object.keys(context.user).length === 0 : true
   const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
 
+  const handleSignIn = () => {
+    const stringifiedSignOut = JSON.stringify(false)
+    localStorage.setItem('sign-out', stringifiedSignOut)
+    context.isLogged(false)
+    // Redirect
+    return <Navigate replace to={'/'} />
+  }
 
   const renderLogIn = () => {
     return (
@@ -28,11 +35,15 @@ function SignIn() {
         className="text-light text-md"
         >{`Tu contraseña es: ${context.user.password ? context.user.password : ""}`}</p>
 
-        <button
-        className="roundend-lg bg-black text-white font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-        value="Login"
-        disabled={!hasUserAnAccount}
-        >Log in</button>
+        <Link
+        to="/">
+          <button
+          className="roundend-lg bg-black text-white font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+          value="Login"
+          onClick={() => handleSignIn()}
+          disabled={!hasUserAnAccount}
+          >Log in</button>
+        </Link>
         
         <p
           className="text-xs"
@@ -41,7 +52,7 @@ function SignIn() {
         >aquí</a> para recuperar su cuenta.</p>
 
         <button
-        className="roundend-lg border border-black bg-white text-black font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none"
+        className="roundend-lg border border-black bg-white text-black font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={() => setView('create-user-info')}
         disabled={hasUserAnAccount}
         >
@@ -86,10 +97,12 @@ function SignIn() {
         name="password" 
         id="password" 
         placeholder="123231"/>
-        <input 
-        className="roundend-lg border bg-black text-white font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none"
-        type="submit" 
-        value="Sign up" />
+
+          <input 
+          className="roundend-lg border bg-black text-white font-semibold w-80 p-3 rounded-lg cursor-pointer focus:outline-none "
+          type="submit" 
+          value="Sign up" 
+          />
       </form>
     </>)
   }
