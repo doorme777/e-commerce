@@ -6,15 +6,15 @@ function Card(e) {
     const context = useContext(ShoppingCartContext);
 
     const ClassName = {
-        container: 'bg-white cursor-pointer w-56 h-60',
+        container: 'bg-white cursor-pointer w-[224px] h-60',
         containerImage: 'relative mb-2 w-full h-4/5',
         categorie: 'absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-8.5',
         image: 'size-full object-cover rounded-lg',
         addCart: 'absolute top-0 right-0 flex justify-center items-center bg-white size-6 rounded-full m-2',
         addedCart: 'absolute top-0 right-0 flex justify-center items-center bg-black size-6 rounded-full m-2 p-1',
-        description: 'flex justify-between',
+        description: 'flex justify-between items-center',
         price: 'text-lg font-medium',
-        product: 'text-sm font-light'
+        product: 'text-sm font-light',
     }
     const ResponseAPI = {
         "category": e.data?.category.name,

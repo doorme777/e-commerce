@@ -4,6 +4,7 @@ import { ShoppingCartContext } from "../../Context/index.jsx";
 import Layout from "../../components/Layout";
 import Card from "../../components/Card";
 import ProductDetail from "../../components/ProductDetail/index.jsx";
+import NotFounded from "../../assets/read_tap_smartphone_man.svg";
 
 function Home() {
   const context = useContext(ShoppingCartContext);
@@ -17,7 +18,10 @@ function Home() {
         )
       } else {
         return (
-          <div>We don't have anything :(</div>
+          <figure>
+            <img src={NotFounded} alt="Not Founded" className="w-80 mx-auto" />
+            <figcaption className="text-sm font-light text-center">We haven´t that :(</figcaption>
+          </figure>
         )
       }
   }
@@ -28,12 +32,12 @@ function Home() {
         placeholder="Search a product..."
         name=""
         id=""
-        className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
+        className="rounded-lg border border-black w-full max-w-[320px] p-4 mb-4 focus:outline-none"
         onChange={(event) => {
           console.log(event.target.value);
            context.setSearchByTitle(event.target.value)}}
       />
-      <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+      <div className="flex flex-wrap justify-center items-center gap-4 w-full max-w-[1024px]">
       {context.items && renderView()}
       </div>
       <ProductDetail />
