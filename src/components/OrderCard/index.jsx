@@ -1,12 +1,13 @@
 import { XMarkIcon } from '@heroicons/react/24/solid'
 
-function OrderCard({
-    id,
-    title,
-    imageUrl,
-    price,
-    handleDeleteProducts,
-}) {
+function OrderCard(props) {
+    const {
+        id,
+        title,
+        imageUrl,
+        price,
+        handleDeleteProducts,
+    } = props;
     let renderXMarkIcon;
     if (handleDeleteProducts) {
         renderXMarkIcon = <XMarkIcon className='size-6 text-black cursor-pointer' onClick={() => handleDeleteProducts(id)}></XMarkIcon>

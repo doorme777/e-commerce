@@ -29,7 +29,9 @@ function Home() {
         name=""
         id=""
         className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
-        onChange={(event) => context.setSearchByTitle(event.target.value)}
+        onChange={(event) => {
+          console.log(event.target.value);
+           context.setSearchByTitle(event.target.value)}}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
       {context.items && renderView()}
