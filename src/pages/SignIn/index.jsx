@@ -17,7 +17,7 @@ function SignIn() {
   const handleSignIn = () => {
     const stringifiedSignOut = JSON.stringify(false)
     localStorage.setItem('sign-out', stringifiedSignOut)
-    context.isLogged(false)
+    context.setIsLogged(false)
     // Redirect
     return <Navigate replace to={'/'} />
   }
