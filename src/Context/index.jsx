@@ -4,6 +4,11 @@ export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({children}) => {
     const [count, setCount] = useState(0)
+    
+    // Login & Logout
+    const [isLogged, setIsLogged] = useState(false);
+    const [user, setUser] = useState({});
+
     // Product Detail · Open & Close
     const [isProductDetailOpen, SetIsProductDetailOpen] = useState(false);
     const openProductDetail = () => SetIsProductDetailOpen(true);
@@ -28,8 +33,6 @@ export const ShoppingCartProvider = ({children}) => {
     // Get products by title
     const [searchByTitle, setSearchByTitle] = useState(null);
     const [searchByCategory, setSearchByCategory] = useState(null);
-
-
 
     useEffect(() => { 
       const fetchData = async () => { 
@@ -101,7 +104,11 @@ export const ShoppingCartProvider = ({children}) => {
         filteredItem,
         setFilteredItems,
         searchByCategory,
-        setSearchByCategory
+        setSearchByCategory,
+        isLogged,
+        setIsLogged,
+        user,
+        setUser,
       }}>
       {children}
     </ShoppingCartContext.Provider>
