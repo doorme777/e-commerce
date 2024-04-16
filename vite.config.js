@@ -10,5 +10,5 @@ export default defineConfig({
   preview: {
     port: 3000,
   },
-  base: "https://doorme777.github.io/e-commerce/",
+  base: 'https://doorme777.github.io/e-commerce/',
 })
