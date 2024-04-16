@@ -1,8 +1,15 @@
-# Proyecto de Práctica de React
-Este proyecto es una aplicación de práctica para aprender y reforzar los conceptos básicos de **React**. La aplicación es una simple tienda en línea que permite a los usuarios ver sus pedidos.
+# Prueba Técnica de React
+Este proyecto es una prueba técnica diseñada para practicar y reforzar los conceptos básicos de **React**. La aplicación es una simple tienda en línea que permite a los usuarios ver sus pedidos.
+
+## Responsividad
+La aplicación ha sido diseñada con un enfoque en la responsividad. Se ha optimizado para garantizar una experiencia de usuario fluida en una variedad de dispositivos y tamaños de pantalla.
+
+## Enfoque en el inicio de sesión
+El principal enfoque de este proyecto fue el proceso de inicio de sesión. Se ha implementado un sistema de inicio de sesión robusto y seguro para garantizar que solo los usuarios autorizados puedan acceder a sus pedidos.
 
 ## Código
-El código principal de la aplicación se encuentra en el archivo i`ndex.jsx`. Aquí se define un componente MyOrders que muestra los pedidos del usuario:
+El código principal de la aplicación se encuentra en el archivo `index.jsx`. Aquí se define un componente `MyOrders` que muestra los pedidos del usuario:
+
 ```js
     function MyOrders() {
   const context = useContext(ShoppingCartContext); // 1
@@ -22,27 +29,4 @@ El código principal de la aplicación se encuentra en el archivo i`ndex.jsx`. A
           </Link>
         ))
       }
-    </Layout>
-  );
-}
 ```
-
-    1.Utilizamos el **Hook useContext** para acceder al contexto de ShoppingCartContext, que contiene los pedidos del usuario.
-
-    2.El componente **Layout** es un componente de orden superior que proporciona el diseño general de la página.
-
-    3.Mapeamos sobre el array `context.order` para generar un componente **Link** y OrdersCard para cada pedido.
-
-    4.El componente Link de `react-router-dom` se utiliza para crear enlaces de navegación. Cada enlace lleva a una ruta única para cada pedido.
-
-## Cómo ejecutar el proyecto
-Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
-
-### Clona el repositorio en tu máquina local.
-Navega hasta el directorio del proyecto.
-Ejecuta `npm install` para instalar las dependencias.
-Ejecuta `npm start` para iniciar el servidor de desarrollo.
-Abre tu navegador y visita `http://localhost:8080`.
-
-## Contribuir
-Este es un proyecto de práctica y no está abierto a contribuciones. Sin embargo, siéntete libre de clonarlo, modificarlo y usarlo para tu propio aprendizaje.
