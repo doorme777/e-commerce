@@ -14,6 +14,7 @@ import SignIn from "../SignIn/index.jsx";
 import Navbar from '../../components/NavBar/index.jsx';
 import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx';
 import "./App.css";
+import { SideMenu } from "../../components/SideMenu/index.jsx";
 
 function AppRoutes() {
   const context = React.useContext(ShoppingCartContext)
@@ -60,6 +61,7 @@ function App() {
     <ShoppingCartProvider>
       <BrowserRouter>
         <AppRoutes/>
+        <SideMenu/>
         <Navbar/>
         <CheckoutSideMenu/>
       </BrowserRouter>

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+import {HamburgerMenu} from '../HamburgerMenu/index.jsx'
 import { render } from "react-dom";
 
 
@@ -18,17 +19,17 @@ function Navbar() {
         if(context.isLogged){
           return (
             <>
-      <li className='text-black/60'>
+      <li className='text-black/60 hidden lg:block' >
                     {context.user.email}
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                     <NavLink to="/my-orders" className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     My orders
                     </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                 <NavLink to="/my-account" className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
@@ -50,6 +51,11 @@ function Navbar() {
     return(
         <nav className={navClasses.Navbar}>
             <ul className={navClasses.ulClasses}>
+              <li 
+              className="lg:hidden"
+              onClick={() => context.setOpenHamburger(!context.openHamburger)}>
+                <HamburgerMenu />
+              </li>
             <li className={navClasses.logo}>
               <NavLink
               to='/'
@@ -58,7 +64,7 @@ function Navbar() {
                 Shopi
               </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
    
               <NavLink to='/clothes'
                 className={({ isActive }) =>
@@ -68,7 +74,7 @@ function Navbar() {
                     Clothes
                 </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                 <NavLink
                 to='/electronics'
                 className={({ isActive }) =>
@@ -78,7 +84,7 @@ function Navbar() {
                     Electronics
                 </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                 <NavLink
                 to='/fornitures'
                 className={({ isActive }) =>
@@ -88,7 +94,7 @@ function Navbar() {
                     Fornitures
                 </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                 <NavLink
                 to='/toys'
                 className={({ isActive }) =>
@@ -98,7 +104,7 @@ function Navbar() {
                     Toys
                 </NavLink>
                 </li>
-                <li>
+                <li className='hidden lg:block'>
                 <NavLink
                 to='/others'
                 className={({ isActive }) =>
@@ -111,9 +117,10 @@ function Navbar() {
             </ul>
             <ul className={navClasses.ulClasses}>
               {RenderOthersSection()}
-              <li
-            onClick={() => handleSignOut()}
-            >
+                <li
+                className='hidden lg:block'
+              onClick={() => handleSignOut()}
+              >
                 <NavLink to="/sign-in" className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>

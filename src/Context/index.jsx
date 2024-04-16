@@ -55,6 +55,9 @@ export const ShoppingCartProvider = ({children}) => {
     const [searchByTitle, setSearchByTitle] = useState(null);
     const [searchByCategory, setSearchByCategory] = useState(null);
 
+    // Hamburger menu
+    const [openHamburger, setOpenHamburger] = useState(false);
+
     // Form for new and older users.
     const handleSubmit = (event) => {
       event.preventDefault();
@@ -152,6 +155,8 @@ export const ShoppingCartProvider = ({children}) => {
         setUser,
         handleSubmit,
         initialLocalStorage,
+        openHamburger,
+        setOpenHamburger,
       }}>
       {children}
     </ShoppingCartContext.Provider>
