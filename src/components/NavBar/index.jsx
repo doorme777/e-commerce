@@ -22,14 +22,14 @@ function Navbar() {
                     {context.user.email}
                 </li>
                 <li className='hidden lg:block'>
-                    <NavLink to='/my-orders' className={({ isActive }) =>
+                    <NavLink to='/e-commerce/my-orders' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     My orders
                     </NavLink>
                 </li>
                 <li className='hidden lg:block'>
-                <NavLink to='/my-account' className={({ isActive }) =>
+                <NavLink to='/e-commerce/my-account' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     My account
@@ -59,7 +59,7 @@ function Navbar() {
               </li>
             <li className={navClasses.logo}>
               <NavLink
-              to='/'
+              to='/e-commerce/'
               className={({ isActive }) =>isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory()}>  
                 Shopi
@@ -67,7 +67,7 @@ function Navbar() {
                 </li>
                 <li className='hidden lg:block'>
    
-              <NavLink to='/clothes'
+              <NavLink to='/e-commerce/clothes'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory('clothes')}
@@ -77,7 +77,7 @@ function Navbar() {
                 </li>
                 <li className='hidden lg:block'>
                 <NavLink
-                to='/electronics'
+                to='/e-commerce/electronics'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined} 
               onClick={() => context.setSearchByCategory('electronics')}
@@ -87,7 +87,7 @@ function Navbar() {
                 </li>
                 <li className='hidden lg:block'>
                 <NavLink
-                to='/fornitures'
+                to='/e-commerce/fornitures'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory('fornitures')}
@@ -97,7 +97,7 @@ function Navbar() {
                 </li>
                 <li className='hidden lg:block'>
                 <NavLink
-                to='/toys'
+                to='/e-commerce/toys'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory('toys')}
@@ -107,7 +107,7 @@ function Navbar() {
                 </li>
                 <li className='hidden lg:block'>
                 <NavLink
-                to='/others'
+                to='/e-commerce/others'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
               onClick={() => context.setSearchByCategory('others')}
@@ -122,7 +122,7 @@ function Navbar() {
                 className='hidden lg:block'
               onClick={() => handleSignOut()}
               >
-                <NavLink to='/sign-in' className={({ isActive }) =>
+                <NavLink to='/e-commerce/sign-in' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     {localStorage.getItem('sign-out') ? 'Log in' : 'Log out'}

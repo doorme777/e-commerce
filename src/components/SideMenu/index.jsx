@@ -53,7 +53,7 @@ function SideMenu() {
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                     <NavLink
-                    to='/clothes'
+                    to='/e-commerce/clothes'
                     className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}
                 onClick={() => context.setSearchByCategory('clothes')}
@@ -65,7 +65,7 @@ function SideMenu() {
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                     <NavLink
-                    to='/electronics'
+                    to='/e-commerce/electronics'
                     className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}
                 onClick={() => context.setSearchByCategory('electronics')}
@@ -77,7 +77,7 @@ function SideMenu() {
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                     <NavLink
-                    to='/forntures'
+                    to='/e-commerce/forntures'
                     className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}
                 onClick={() => context.setSearchByCategory('forntures')}
@@ -89,7 +89,7 @@ function SideMenu() {
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                     <NavLink
-                    to='/toys'
+                    to='/e-commerce/toys'
                     className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}
                 onClick={() => context.setSearchByCategory('toys')}
@@ -101,7 +101,7 @@ function SideMenu() {
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                     <NavLink
-                    to='/others'
+                    to='/e-commerce/others'
                     className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}
                 onClick={() => context.setSearchByCategory('others')}
@@ -139,7 +139,7 @@ function SideMenu() {
                 <ul className='mt-2 space-y-1 px-4'>
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
-                    <NavLink to='/my-account' className={`${({ isActive }) =>
+                    <NavLink to='/e-commerce/my-account' className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}>
                         Details
                         </NavLink>
@@ -147,7 +147,7 @@ function SideMenu() {
 
                     <li 
                     onClick={() => context.setOpenHamburger(!context.openHamburger)}>
-                    <NavLink to='/my-orders' className={`${({ isActive }) =>
+                    <NavLink to='/e-commerce/my-orders' className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}>
                         My orders
                         </NavLink>
@@ -160,7 +160,7 @@ function SideMenu() {
                         handleSignOut()
                     }}
                     >
-                        <NavLink to='/sign-in' className={`${({ isActive }) =>
+                        <NavLink to='/e-commerce/sign-in' className={`${({ isActive }) =>
                 isActive ? activeStyle : undefined} block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700`}>
                         {localStorage.getItem('sign-out') ? 'Log in' : 'Log out'}
                         </NavLink>
