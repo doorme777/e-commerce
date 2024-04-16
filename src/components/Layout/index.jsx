@@ -1,6 +1,6 @@
 function Layout({children}) {
     return(
-        <section className="flex flex-col items-center mt-20">
+        <section className='flex flex-col items-center mt-20'>
             {children}
         </section>
     );

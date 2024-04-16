@@ -34,7 +34,6 @@ function Home() {
         id=''
         className='rounded-lg border border-black w-full max-w-[320px] p-4 mb-4 focus:outline-none'
         onChange={(event) => {
-          console.log(event.target.value);
            context.setSearchByTitle(event.target.value)}}
       />
       <div className='flex flex-wrap justify-center items-center gap-4 w-full max-w-[1024px]'>

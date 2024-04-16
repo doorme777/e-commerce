@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
-import { ShoppingCartIcon } from '@heroicons/react/24/solid'
+import { ShoppingCartIcon, Bars3BottomLeftIcon } from '@heroicons/react/24/solid'
 import {HamburgerMenu} from '../HamburgerMenu/index.jsx'
 import { render } from 'react-dom';
 
@@ -54,7 +54,9 @@ function Navbar() {
               <li 
               className='lg:hidden'
               onClick={() => context.setOpenHamburger(!context.openHamburger)}>
-                <HamburgerMenu />
+                <Bars3BottomLeftIcon
+                className='block size-6 text-black cursor-pointer'
+                />
               </li>
             <li className={navClasses.logo}>
               <NavLink

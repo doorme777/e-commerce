@@ -14,13 +14,13 @@ function OrderCard(props) {
     }
 
     return (
-        <div className="flex justify-between items-center px-6 mb-2">
+        <div className='flex justify-between items-center px-6 mb-2'>
             <div 
             className='flex items-center gap-2'>
                 <figure 
                 className='size-20'>
                     <img 
-                    className="size-full rounded-lg object-cover"
+                    className='size-full rounded-lg object-cover'
                     src={imageUrl} 
                     alt={title} />
                 </figure>
