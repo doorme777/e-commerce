@@ -37,12 +37,6 @@ function AppRoutes() {
     { path: '/e-commerce/fornitures', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/e-commerce/sign-in'} /> },
     { path: '/e-commerce/toys', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/e-commerce/sign-in'} /> },
     { path: '/e-commerce/others', element: hasUserAnAccount && !isUserSignOut ? <Home /> : <Navigate replace to={'/e-commerce/sign-in'} /> },
-    {path: '/e-commerce/', element:<Home/>},
-    { path: '/e-commerce/clothes', element: <Home /> },
-    { path: '/e-commerce/electronics', element: <Home /> },
-    { path: '/e-commerce/fornitures', element: <Home /> },
-    { path: '/e-commerce/toys', element: <Home /> },
-    { path: '/e-commerce/others', element: <Home /> },
     {path: '/e-commerce/my-account', element:<MyAccount/>},
     {path: '/e-commerce/my-order', element:<MyOrder/>},
     {path: '/e-commerce/my-orders/last/', element:<MyOrder/>},
@@ -51,6 +45,9 @@ function AppRoutes() {
     {path: '/e-commerce/sign-in', element:<SignIn/>},  
     {path: '/e-commerce/*', element:<NotFound/>},
     {path: '/*', element:<NotFound/>},
+  ])
+  
+  return routes;
   ])
 
   return routes;
