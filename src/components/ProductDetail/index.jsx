@@ -7,10 +7,10 @@ import './index.css'
 const ProductDetail = () => {
   const context = useContext(ShoppingCartContext);
   const ClassName = {
-    "container": `${context.isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-white`,
-    "containerProducts": 'flex justify-between items-center p-6',
-    "title": 'font-medium text-xl',
-    "iconClose": 'size-6 text-black'
+    'container': `${context.isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded-lg bg-white`,
+    'containerProducts': 'flex justify-between items-center p-6',
+    'title': 'font-medium text-xl',
+    'iconClose': 'size-6 text-black'
   }
 
   return (
@@ -23,7 +23,7 @@ const ProductDetail = () => {
           <XMarkIcon className='size-6 text-black'></XMarkIcon>
         </div>
       </div>
-      <figure className="px-6">
+      <figure className='px-6'>
   <img className='size-full object-cover rounded-lg'
   src={context.productToShow.images?.[0]} 
   alt={context.productToShow.title} 

@@ -5,7 +5,7 @@ function OrderCard({
     totalProducts,
 }) {    
     return (
-        <div className="flex justify-between items-center px-6 mb-2 border border-black rounded-lg p-4 w-80">
+        <div className='flex justify-between items-center px-6 mb-2 border border-black rounded-lg p-4 w-80'>
             <div className='flex justify-between w-full'>
                 <p>
                     <span className='font-light'>01.02.24</span>

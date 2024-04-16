@@ -17,10 +17,10 @@ function Card(e) {
         product: 'text-sm font-light',
     }
     const ResponseAPI = {
-        "category": e.data?.category.name,
-        "images": e.data?.images[0],
-        "product": e.data?.title,
-        "price": e.data?.price,
+        'category': e.data?.category.name,
+        'images': e.data?.images[0],
+        'product': e.data?.title,
+        'price': e.data?.price,
     }
     const showProduct = (x) => {
         context.openProductDetail();
@@ -32,7 +32,6 @@ function Card(e) {
         context.setCartProducts([...context.cartProducts, productData])
         context.openCheckoutSideMenu()
         context.closeProductDetail()
-        console.log('CART: ', context.cartProducts)
     }
     const renderIcon = (id) => {
         const isInCart = context.cartProducts.filter(product => product.id === id).length > 0

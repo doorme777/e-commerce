@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 import {HamburgerMenu} from '../HamburgerMenu/index.jsx'
-import { render } from "react-dom";
+import { render } from 'react-dom';
 
 
 function Navbar() {
@@ -23,14 +23,14 @@ function Navbar() {
                     {context.user.email}
                 </li>
                 <li className='hidden lg:block'>
-                    <NavLink to="/my-orders" className={({ isActive }) =>
+                    <NavLink to='/my-orders' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     My orders
                     </NavLink>
                 </li>
                 <li className='hidden lg:block'>
-                <NavLink to="/my-account" className={({ isActive }) =>
+                <NavLink to='/my-account' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     My account
@@ -52,7 +52,7 @@ function Navbar() {
         <nav className={navClasses.Navbar}>
             <ul className={navClasses.ulClasses}>
               <li 
-              className="lg:hidden"
+              className='lg:hidden'
               onClick={() => context.setOpenHamburger(!context.openHamburger)}>
                 <HamburgerMenu />
               </li>
@@ -69,7 +69,7 @@ function Navbar() {
               <NavLink to='/clothes'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
-              onClick={() => context.setSearchByCategory("clothes")}
+              onClick={() => context.setSearchByCategory('clothes')}
             >
                     Clothes
                 </NavLink>
@@ -79,7 +79,7 @@ function Navbar() {
                 to='/electronics'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined} 
-              onClick={() => context.setSearchByCategory("electronics")}
+              onClick={() => context.setSearchByCategory('electronics')}
               >
                     Electronics
                 </NavLink>
@@ -89,7 +89,7 @@ function Navbar() {
                 to='/fornitures'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
-              onClick={() => context.setSearchByCategory("fornitures")}
+              onClick={() => context.setSearchByCategory('fornitures')}
               >
                     Fornitures
                 </NavLink>
@@ -99,7 +99,7 @@ function Navbar() {
                 to='/toys'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
-              onClick={() => context.setSearchByCategory("toys")}
+              onClick={() => context.setSearchByCategory('toys')}
               >
                     Toys
                 </NavLink>
@@ -109,7 +109,7 @@ function Navbar() {
                 to='/others'
                 className={({ isActive }) =>
               isActive ? activeStyle : undefined}
-              onClick={() => context.setSearchByCategory("others")}
+              onClick={() => context.setSearchByCategory('others')}
               >
                     Others
                 </NavLink>
@@ -121,13 +121,13 @@ function Navbar() {
                 className='hidden lg:block'
               onClick={() => handleSignOut()}
               >
-                <NavLink to="/sign-in" className={({ isActive }) =>
+                <NavLink to='/sign-in' className={({ isActive }) =>
               isActive ? activeStyle : undefined
             }>
                     {localStorage.getItem('sign-out') ? 'Log in' : 'Log out'}
                     </NavLink>
                 </li>
-                <li className="flex items-center gap-1">
+                <li className='flex items-center gap-1'>
                     <ShoppingCartIcon className='size-6 text-black'></ShoppingCartIcon>
                     <div>
                       {context.cartProducts.length}

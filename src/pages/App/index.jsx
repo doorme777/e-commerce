@@ -1,20 +1,20 @@
-import React from "react"; // Add this line
-import { Navigate } from "react-router-dom";
-import { ShoppingCartContext } from "../../Context/index.jsx";
-import { BrowserRouter, useRoutes } from "react-router-dom";
-import {ShoppingCartProvider} from "../../Context/index.jsx"
+import React from 'react'; // Add this line
+import { Navigate } from 'react-router-dom';
+import { ShoppingCartContext } from '../../Context/index.jsx';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+import {ShoppingCartProvider} from '../../Context/index.jsx'
 // enpoints
-import {Home} from "../Home/index.jsx";
-import MyAccount from "../MyAccount/index.jsx";
-import MyOrder from "../MyOrder/index.jsx";
-import MyOrders from "../MyOrders/index.jsx";
-import NotFound from "../NotFound/index.jsx";
-import SignIn from "../SignIn/index.jsx";
+import {Home} from '../Home/index.jsx';
+import MyAccount from '../MyAccount/index.jsx';
+import MyOrder from '../MyOrder/index.jsx';
+import MyOrders from '../MyOrders/index.jsx';
+import NotFound from '../NotFound/index.jsx';
+import SignIn from '../SignIn/index.jsx';
 // components
 import Navbar from '../../components/NavBar/index.jsx';
 import CheckoutSideMenu from '../../components/CheckoutSideMenu/index.jsx';
-import "./App.css";
-import { SideMenu } from "../../components/SideMenu/index.jsx";
+import './App.css';
+import { SideMenu } from '../../components/SideMenu/index.jsx';
 
 function AppRoutes() {
   const context = React.useContext(ShoppingCartContext)

@@ -1,20 +1,16 @@
 
-import { useContext } from "react";
+import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context';
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
-import { Link } from "react-router-dom";
-import OrderCard from "../../components/OrderCard";
-import Layout from "../../components/Layout";
+import { Link } from 'react-router-dom';
+import OrderCard from '../../components/OrderCard';
+import Layout from '../../components/Layout';
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext);
   const currentPath = window.location.pathname
   let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
   if (index === 'last') index = context.order?.length - 1
-  console.log("Hola soy la sección de myOrder sin s");
-  console.log(context.order)
-  
-
 
   return (
     <Layout>
@@ -24,7 +20,7 @@ function MyOrder() {
         </Link>
         <h1>My Order</h1>
       </div>
-      <div className="flex flex-col w-80">
+      <div className='flex flex-col w-80'>
         {
            context.order?.[index]?.products.map(product => (
             <OrderCard
